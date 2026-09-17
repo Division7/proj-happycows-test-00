@@ -50,6 +50,7 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
+      #god willing, this is temporary until I come up with a better solution
       - name: flatten output
         id: configure-url
         run: echo "REPO=${GITHUB_REPOSITORY,,}" >> "$GITHUB_OUTPUT"
@@ -66,4 +67,5 @@ jobs:
       template_app_name: 'happycows'
     secrets:
       HOST_URL: ${{ secrets.HOST_URL }}
+      INTERNAL_HOST_URL: ${{ secrets.INTERNAL_HOST_URL }}
       PORT: ${{ secrets.PORT }}
