@@ -20,7 +20,7 @@ collections:
 repo_name: "TBD"
 
 
-repo: Division7/proj-happycows-test
+repo: Division7/proj-happycows-test-00
 owner: Division7
-repo_name: proj-happycows-test
-pull_requests: [{"author":{"id":"MDQ6VXNlcjI2MzQ3ODk3","is_bot":false,"login":"Division7","name":"Daniel Jensen"},"headRefName":"dj-example","number":1,"title":"dj - add maven wrapper","url":"https://github.com/Division7/proj-happycows-test/pull/1"}]
+repo_name: proj-happycows-test-00
+pull_requests: [{"author":{"id":"MDQ6VXNlcjI2MzQ3ODk3","is_bot":false,"login":"Division7","name":"Daniel Jensen"},"headRefName":"dj-example","number":1,"title":"dj - add maven wrapper","url":"https://github.com/Division7/proj-happycows-test-00/pull/1"}]
