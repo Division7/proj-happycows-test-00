@@ -67,3 +67,4 @@ jobs:
     secrets:
       HOST_URL: ${{ secrets.HOST_URL }}
       PORT: ${{ secrets.PORT }}
+      SSH_USERNAME: ${{ secrets.SSH_USERNAME }}
