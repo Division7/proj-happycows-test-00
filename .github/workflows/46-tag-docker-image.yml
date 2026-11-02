@@ -8,7 +8,7 @@ on:
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   publish-docker-image:
@@ -67,5 +67,4 @@ jobs:
       template_app_name: 'happycows'
     secrets:
       HOST_URL: ${{ secrets.HOST_URL }}
-      INTERNAL_HOST_URL: ${{ secrets.INTERNAL_HOST_URL }}
       PORT: ${{ secrets.PORT }}
