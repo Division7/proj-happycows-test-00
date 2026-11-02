@@ -61,7 +61,7 @@ jobs:
       contents: read
       pull-requests: read
     needs: publish-docker-image
-    uses: Division7/dokku-review-apps/.github/workflows/deploy-app.yml@main
+    uses: Division7/dokku-review-apps/.github/workflows/deploy-app.yml@dj-scriptImprovements
     with:
       docker_image: ${{ needs.publish-docker-image.outputs.ghcr-url }}
       template_app_name: 'happycows'
