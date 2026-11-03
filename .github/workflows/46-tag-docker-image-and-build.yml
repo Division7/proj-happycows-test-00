@@ -57,10 +57,10 @@ jobs:
     concurrency: 
       group: ${{ github.workflow }}-${{ github.ref }}
       cancel-in-progress: false
-    uses: Division7/dokku-review-apps/.github/workflows/deploy-app.yml@dj-scriptImprovements
+    uses: ucsb-cs156/dokku-review-apps/.github/workflows/deploy-app.yml@main
     with:
       docker_image: ${{ needs.publish-docker-image.outputs.ghcr-url }}
-      template_app_name: 'happycows'
+      template_app_name: ${{ vars.TEMPLATE_APP_NAME }}
       host_url: ${{ vars.HOST_URL }}
     secrets:
       PORT: ${{ secrets.PORT }}
