@@ -19,6 +19,7 @@
         <java.version>25</java.version>
         <app.frontend.nodeVersion>v24.21.0</app.frontend.nodeVersion>
         <targetClasses>${targetClasses:edu.ucsb.cs156.*}</targetClasses>
+        <cache.use>false</cache.use>
     </properties>
     <dependencies>
         <dependency>
@@ -549,22 +550,23 @@
                         </configuration>
                         <executions>
                             <execution>
-                                <id>install node and npm</id>
+                                <id>install-node-and-npm</id>
                                 <goals>
                                     <goal>install-node-and-npm</goal>
                                 </goals>
                                 <configuration>
                                     <nodeVersion>${app.frontend.nodeVersion}</nodeVersion>
+                                    <skip>${cache.use}</skip>
                                 </configuration>
                             </execution>
                             <execution>
-                                <id>npm install</id>
+                                <id>npm-install</id>
                                 <goals>
                                     <goal>npm</goal>
                                 </goals>
                                 <configuration>
                                     <arguments>ci</arguments>
-                                    <skip>${frontend.dependency.skip}</skip>
+                                    <skip>${cache.use}</skip>
                                 </configuration>
                             </execution>
                             <execution>
@@ -574,7 +576,6 @@
                                 </goals>
                                 <configuration>
                                     <arguments>run build</arguments>
-                                    <skip>${frontend.build.skip}</skip>
                                 </configuration>
                             </execution>
                         </executions>
@@ -584,56 +585,10 @@
                         <version>3.0.0</version>
                         <executions>
                             <execution>
-                                <id>compute-frontend-skip-flags</id>
-                                <phase>validate</phase>
-                                <goals>
-                                    <goal>run</goal>
-                                </goals>
-                                <configuration>
-                                    <exportAntProperties>true</exportAntProperties>
-                                    <target>
-                                        <condition property="frontend.dependency.skip" value="true" else="false">
-                                            <and>
-                                                <uptodate>
-                                                    <srcfiles dir="${project.basedir}/frontend" includes="package.json,package-lock.json"/>
-                                                    <mapper type="merge" to="${project.build.directory}/frontend-deps.marker"/>
-                                                </uptodate>
-                                            </and>
-                                        </condition>
-                                        <condition property="frontend.build.skip" value="true" else="false">
-                                            <and>
-                                                <equals arg1="${frontend.dependency.skip}" arg2="true"/>
-                                                <uptodate>
-                                                    <srcfiles dir="${project.basedir}/frontend/src" includes="**/*"/>
-                                                    <srcfiles dir="${project.basedir}/frontend" includes="vite.config.mjs"/>
-                                                    <mapper type="merge" to="${project.basedir}/frontend/build"/>
-                                                </uptodate>
-                                            </and>
-                                        </condition>
-                                        <echo message="frontend.dependency.skip=${frontend.dependency.skip}"/>
-                                        <echo message="frontend.build.skip=${frontend.build.skip}"/>
-                                    </target>
-                                </configuration>
-                            </execution>
-                            <execution>
-                                <id>create-deps-marker</id>
-                                <phase>generate-resources</phase>
-                                <goals>
-                                    <goal>run</goal>
-                                </goals>
-                                <configuration>
-                                    <skip>${frontend.dependency.skip}</skip>
-                                    <target>
-                                        <touch file="${project.build.directory}/frontend-deps.marker" mkdirs="true"/>
-                                    </target>
-                                </configuration>
-                            </execution>
-                            <execution>
                                 <id>copy-frontend-build</id>
                                 <phase>generate-resources</phase>
                                 <configuration>
                                     <target>
-                                        <echo message="Frontend build skip=${frontend.build.skip} (true=skipped, false=executed)"/>
                                         <copy todir="${project.build.outputDirectory}/public">
                                             <fileset dir="${project.basedir}/frontend/build"/>
                                         </copy>
