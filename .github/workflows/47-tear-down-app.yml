@@ -1,0 +1,20 @@
+name: "47-tear-down-app"
+on:
+  pull_request:
+    types: [closed]
+
+jobs:
+  tear-down-app:
+    name: Tear Down Deployment App
+    permissions: 
+      id-token: write
+      actions: read
+      contents: read
+      pull-requests: read
+      deployments: write
+    uses: Division7/dokku-review-apps/.github/workflows/teardown-app.yml@dj-scriptImprovements
+    with:
+      host_url: ${{ vars.HOST_URL }}
+    secrets:
+      PORT: ${{ secrets.PORT }}
+      SSH_USERNAME: ${{ secrets.SSH_USERNAME }}
