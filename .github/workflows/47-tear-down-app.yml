@@ -12,7 +12,7 @@ jobs:
       contents: read
       pull-requests: read
       deployments: write
-    uses: Division7/dokku-review-apps/.github/workflows/teardown-app.yml@dj-scriptImprovements
+    uses: ucsb-cs156/dokku-review-apps/.github/workflows/teardown-app.yml@main
     with:
       host_url: ${{ vars.HOST_URL }}
     secrets:
