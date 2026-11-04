@@ -17,7 +17,7 @@ const LoginCard = () => {
     >
       <Card.Body>
         <Card.Title data-testid="loginPage-cardTitle">
-          Welcome to Happy Cows! does this work?
+          Welcome to Happy Cows! testing another branch
         </Card.Title>
         <Card.Text>In order to start playing, please login.</Card.Text>
         <Button href={oauthLogin} variant="primary">
