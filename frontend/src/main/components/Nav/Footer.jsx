@@ -9,7 +9,6 @@ export default function Footer() {
           <a href="https://devries.chem.ucsb.edu/about-5">Mattanjah de Vries</a>
           , Distinguished Professor of Chemistry at UC Santa Barbara. Testing edits here
         </p>
-      </Container>
     </footer>
   );
 }
