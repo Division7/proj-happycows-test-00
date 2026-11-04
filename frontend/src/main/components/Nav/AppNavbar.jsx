@@ -66,20 +66,20 @@ export default function AppNavbar({
                   data-testid="appnavbar-admin-dropdown"
                 >
                   <NavDropdown.Item href="/admin/creategame">
-                    Create Game
+                    Create Blah Game
                   </NavDropdown.Item>
                   <NavDropdown.Item href="/admin/listgamev2">
-                    List Games
+                    List Meh Games
                   </NavDropdown.Item>
                   <NavDropdown.Item href="/admin/listcourses">
-                    Courses
+                    Courses Boo
                   </NavDropdown.Item>
                   <NavDropdown.Item href="/admin/users">Users</NavDropdown.Item>
                   <NavDropdown.Item href="/admin/jobs">
-                    Manage Jobs
+                    Manage Blah Jobs
                   </NavDropdown.Item>
                   <NavDropdown.Item href="/admin/reports">
-                    Instructor Reports
+                    Instructor Foo Reports
                   </NavDropdown.Item>
                   <NavDropdown.Item href="/developer">
                     Developer Info
