@@ -10,14 +10,30 @@ updates:
     directory: "/" # Location of package manifests
     schedule:
       interval: "weekly"
+    allow:
+      - dependency-name: "*"
+        update-types: 
+          - "version-update:semver-patch"
+          - "version-update:semver-minor"
 
   - package-ecosystem: "npm" # See documentation for possible values
     directory: "/frontend" # Location of package manifests
     schedule:
       interval: "weekly"
+    allow:
+      - dependency-name: "*"
+        update-types: 
+          - "version-update:semver-patch"
+          - "version-update:semver-minor"
   - package-ecosystem: "docker"
     # Look for a `Dockerfile` in the `root` directory
     directory: "/"
     # Check for updates once a week
     schedule:
       interval: "weekly"
+    allow:
+      - dependency-name: "*"
+        update-types: 
+          - "version-update:semver-patch"
+          - "version-update:semver-minor"
+        
