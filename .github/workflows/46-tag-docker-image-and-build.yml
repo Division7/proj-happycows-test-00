@@ -26,7 +26,6 @@ jobs:
         with:
           images: ghcr.io/${{ github.repository }}
           tags: |
-            type=ref,event=branch
             type=sha,format=long
             type=ref,event=pr
       - name: Set up Docker Buildx
@@ -40,8 +39,7 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
+          cache-from: type=registry,ref=ghcr.io/${{ github.repository }}:buildcache
       #god willing, this is temporary until I come up with a better solution
       - name: flatten output
         id: configure-url
