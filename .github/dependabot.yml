@@ -4,7 +4,6 @@
 # https://docs.github.com/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
 
 version: 2
-open-pull-requests-limit: 5
 updates:
   - package-ecosystem: "maven" # See documentation for possible values
     directory: "/" # Location of package manifests
@@ -15,6 +14,7 @@ updates:
         update-types: 
           - "version-update:semver-patch"
           - "version-update:semver-minor"
+    open-pull-requests-limit: 5
 
   - package-ecosystem: "npm" # See documentation for possible values
     directory: "/frontend" # Location of package manifests
@@ -25,6 +25,8 @@ updates:
         update-types: 
           - "version-update:semver-patch"
           - "version-update:semver-minor"
+    open-pull-requests-limit: 5
+    
   - package-ecosystem: "docker"
     # Look for a `Dockerfile` in the `root` directory
     directory: "/"
@@ -36,4 +38,5 @@ updates:
         update-types: 
           - "version-update:semver-patch"
           - "version-update:semver-minor"
+    open-pull-requests-limit: 5
         
