@@ -19,7 +19,7 @@
     "react-query": "^3.39.3",
     "react-router": "^7.8.2",
     "react-table": "^7.8.0",
-    "react-toastify": "^11.1.0",
+    "react-toastify": "^11.2.0",
     "react18-json-view": "^0.2.8",
     "recharts": "^3.10.1"
   },
