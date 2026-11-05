@@ -50,4 +50,4 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=registry,ref=ghcr.io/${{ steps.configure-url.outputs.REPO }}:buildcache
-          cache-to: type=registry,ref=ghcr.io/${{ steps.configure-url.outputs.REPO }}:buildcache
+          cache-to: type=registry,ref=ghcr.io/${{ steps.configure-url.outputs.REPO }}:buildcache,mode=max
